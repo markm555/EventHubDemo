@@ -1,0 +1,10 @@
+    Count(*) as [COUNT],
+    CAST (system.timestamp() as Datetime) as Processed,
+    p
+INTO
+    [PowerBI]
+FROM
+    [EHAlias]
+GROUP BY
+    SlidingWindow(ms,1),
+    p
